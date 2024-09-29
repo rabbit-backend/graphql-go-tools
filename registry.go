@@ -166,7 +166,13 @@ func (c *registry) importResolver(name string, resolver interface{}) error {
 
 	case *graphql.Scalar:
 		if _, ok := c.types[name]; !ok {
-			c.types[name] = res
+			c.types[name] = graphql.NewScalar(graphql.ScalarConfig{
+				Name:         res.Name(),
+				Description:  res.Description(),
+				Serialize:    func(value interface{}) interface{} { return value },
+				ParseValue:   func(value interface{}) interface{} { return value },
+				ParseLiteral: func(valueAST ast.Value) interface{} { return valueAST },
+			})
 		}
 
 	case *graphql.Enum:
