@@ -2,8 +2,6 @@ package tools
 
 import (
 	"context"
-	"encoding/json"
-	"fmt"
 
 	"github.com/graphql-go/graphql"
 	"github.com/graphql-go/graphql/language/ast"
@@ -93,14 +91,8 @@ func (c *ExecutableSchema) Make(ctx context.Context) (graphql.Schema, error) {
 	}
 
 	schema, err := graphql.NewSchema(*schemaConfig)
-	if err != nil && c.Debug {
-		j, _ := json.MarshalIndent(registry.dependencyMap, "", "  ")
-		fmt.Println("Unresolved types, thunks will be used")
-		fmt.Println(string(j))
-	}
-
 	// create a new schema
-	return schema, nil
+	return schema, err
 }
 
 // build a schema from an ast
