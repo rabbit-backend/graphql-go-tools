@@ -17,9 +17,9 @@ func (c *registry) buildScalarFromAST(definition *ast.ScalarDefinition) error {
 	}
 
 	if r := c.getResolver(name); r != nil && r.getKind() == kinds.ScalarDefinition {
-		scalarConfig.ParseLiteral = func(valueAST ast.Value) interface{} { return valueAST }
-		scalarConfig.ParseValue = func(value interface{}) interface{} { return value }
-		scalarConfig.Serialize = func(value interface{}) interface{} { return value }
+		scalarConfig.ParseLiteral = r.(*ScalarResolver).ParseLiteral
+		scalarConfig.ParseValue = r.(*ScalarResolver).ParseValue
+		scalarConfig.Serialize = r.(*ScalarResolver).Serialize
 	}
 
 	if err := c.applyDirectives(applyDirectiveParams{
