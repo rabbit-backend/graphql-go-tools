@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/bhoriuchi/graphql-go-tools/server/graphqlws"
+	"github.com/bhoriuchi/graphql-go-tools/server/logger"
 	"github.com/gorilla/websocket"
 	"github.com/graphql-go/graphql"
 	"github.com/graphql-go/graphql/gqlerrors"
-	"github.com/rohit20001221/graphql-go-tools/server/graphqlws"
-	"github.com/rohit20001221/graphql-go-tools/server/logger"
 )
 
 // Constants
