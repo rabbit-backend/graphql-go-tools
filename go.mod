@@ -1,6 +1,6 @@
-module github.com/bhoriuchi/graphql-go-tools
+module github.com/rohit20001221/graphql-go-tools
 
-go 1.13
+go 1.22.4
 
 require (
 	github.com/google/uuid v1.3.0
