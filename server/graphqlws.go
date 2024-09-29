@@ -4,9 +4,9 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/bhoriuchi/graphql-go-tools/server/graphqlws"
 	"github.com/gorilla/websocket"
 	"github.com/graphql-go/graphql"
+	"github.com/rohit20001221/graphql-go-tools/server/graphqlws"
 )
 
 func (s *Server) newGraphQLWSConnection(ctx context.Context, r *http.Request, ws *websocket.Conn) {
