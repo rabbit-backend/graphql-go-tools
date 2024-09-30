@@ -1,6 +1,6 @@
 # graphql-go-tools
-Like apollo-tools for graphql-go
 
+Like apollo-tools for graphql-go
 
 ## Current Tools
 
@@ -8,18 +8,18 @@ Like apollo-tools for graphql-go
 
 **Currently supports:**
 
-  * Merge multiple graphql documents
-  * Object type extending
-  * Custom Directives
-  * Import types and directives
+- Merge multiple graphql documents
+- Object type extending
+- Custom Directives
+- Import types and directives
 
 **Planned:**
 
-  * Schema-stitching
+- Schema-stitching
 
 **Limitations:**
 
-  * Only types and directives defined in the `TypeDefs` with schema language can be extended and have custom directives applied.
+- Only types and directives defined in the `TypeDefs` with schema language can be extended and have custom directives applied.
 
 ## Example
 
@@ -34,7 +34,7 @@ func main() {
       name: String!
       description: String
     }
-    
+
     type Query {
       foo(id: ID!): Foo @description(value: "bazqux")
     }`,
@@ -91,9 +91,3 @@ func main() {
 }
 
 ```
-
-### Handler
-
-Modified `graphql-go/handler` with updated GraphiQL and Playground
-
-See [handler package](handler)
