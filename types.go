@@ -14,6 +14,10 @@ func (c *registry) buildScalarFromAST(definition *ast.ScalarDefinition) error {
 	scalarConfig := graphql.ScalarConfig{
 		Name:        name,
 		Description: getDescription(definition),
+		// fallback values without throwing any error
+		Serialize:    func(value interface{}) interface{} { return value },
+		ParseValue:   func(value interface{}) interface{} { return value },
+		ParseLiteral: func(valueAST ast.Value) interface{} { return valueAST.GetValue() },
 	}
 
 	if r := c.getResolver(name); r != nil && r.getKind() == kinds.ScalarDefinition {
