@@ -1,4 +1,4 @@
-module github.com/rohit20001221/graphql-go-tools
+module github.com/rabbit-backend/graphql-go-tools
 
 go 1.22.4
 
